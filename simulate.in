@@ -1,0 +1,70 @@
+# No more than one state at each step
+~Q0-0 ~Q1-0
+~Q0-1 ~Q1-1
+~Q0-2 ~Q1-2
+~Q0-3 ~Q1-3
+~Q0-4 ~Q1-4
+~Q0-5 ~Q1-5
+~Q0-6 ~Q1-6
+
+# At least one state in each step
+Q0-0 Q1-0
+Q0-1 Q1-1
+Q0-2 Q1-2
+Q0-3 Q1-3
+Q0-4 Q1-4
+Q0-5 Q1-5
+Q0-6 Q1-6
+
+# Rules for DFA 6.3
+# (Q0, 1) -> Q5
+~Q0-0  ~P1   Q1-5
+
+# (Q5, 0) -> Q5
+~Q0-5  P1   Q1-5
+
+# (Q5, 1) -> Q6
+~Q0-5  ~P1   Q1-6
+
+# (Q6, 1) -> Q5
+~Q0-6  ~P1   Q1-5
+
+# (Q6, 0) -> Q6
+~Q0-6  P1   Q5-6
+
+
+# Rules for DFA 6.4
+# (Q0, 0) -> Q1
+~Q0-0  P1   Q1-1
+
+# (Q1, 0) -> Q3
+~Q0-1  P1   Q1-3
+
+# (Q1, 1) -> Q4
+~Q0-1  ~P1   Q1-4
+
+# (Q2, 0) -> Q1
+~Q0-2  P1   Q1-1
+
+# (Q2, 1) -> Q4
+~Q0-2  ~P1   Q1-4
+
+# (Q3, 0) -> Q4
+~Q0-3  P1   Q1-4
+
+# (Q3, 1) -> Q2
+~Q0-3  ~P1   Q1-2
+
+# (Q4, 0) -> Q4
+~Q0-4  P1   Q1-4
+
+# (Q4, 1) -> Q4
+~Q0-4  ~P1   Q1-4
+
+
+# Start in state 0
+Q0-0
+
+# End in an accepting state
+Q0-1
+Q0-6
